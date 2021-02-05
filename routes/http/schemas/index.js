@@ -8,7 +8,7 @@ module.exports = {
         name: {type: "string", pattern: "^[a-zA-Z]+$"},
         surname: {type: "string", pattern: "^[a-zA-Z]+$"},
         login: {type: "string", pattern: "^[a-zA-Z]+$"},
-        user_pass: {type: "string", pattern: "^[0-9]+$"},
+        userpass: {type: "string", pattern: "^[0-9]+$"},
       },
       additionalProperties: false,
     },
@@ -20,7 +20,7 @@ module.exports = {
       name: "Некорректно введено имя, попробуйте вводить только буквы на английском!",
       surname: "Некорректно введена фамилия, попробуйте вводить только буквы на английском!",
       login: "Некорректно введен логин, попробуйте вводить только буквы на английском!",
-      user_pass: "Пароль должен состоять только из цифр",
+      userpass: "Пароль должен состоять только из цифр",
     },
   },
 }

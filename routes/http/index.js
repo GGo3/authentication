@@ -16,7 +16,7 @@ const validator = (req, res, next) => {
   if (!valid) { 
     res.send(ajv.errors.map((el) => {
       return {
-        status: 'Error', // статус нужен для оброботки на фронте, чтобы трекать что именно туда прилитает
+        status: false, // статус нужен для оброботки на фронте, чтобы трекать что именно туда прилитает
         inputName: el.dataPath.replace(/[^a-zA-Z ]/g, "."), // необходимое имя для смены класса инпута
         errorText: el.message, // текст кастомизированной ошибки
       }

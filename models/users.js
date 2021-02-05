@@ -17,7 +17,7 @@ generalSchema.statics.checkUser = async function(login, pass) {
   return currentHash === user.password ? true : false;
 };
 
-generalSchema.virtual('user_pass')
+generalSchema.virtual('userpass')
   .get(function() {console.log('no date')})
   .set(function(pass)  {
     const currentHash = crypto.createHmac('sha256', pass)

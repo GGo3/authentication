@@ -8,12 +8,20 @@ formEl.addEventListener('submit', ev => {
   axios.post(currentPagePath, params)
   .then( r => {
     console.log(r);
-    if (r.data[0].status === 'Error') {
+    if (r.data[0].status === false) {
       statusEl.innerHTML = r.data.reduce((total, current) =>{
         return `<p>${total}  ${current.errorText}</p>`
       }, '');
     } else {
       statusEl.innerHTML = r.data;
     }
+    document.querySelectorAll('.inputs').forEach(el => {
+      el.classList.remove('inputs-novalid');
+    });
+    r.data.forEach(el => {
+      document.querySelectorAll(el.inputName).forEach(el => {
+        el.classList.add('inputs-novalid');
+      });
+    });
   });
 });

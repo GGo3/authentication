@@ -22,7 +22,7 @@ const trySignIn = async (req, res) => {
     const currentUser = await Users.getUserByLogin(req.body.loginMain); // если такой пользаватель есть, запрашиваем его имя и фамилию с БД
     res.send(`Добро пожаловать, ${currentUser.surname} ${currentUser.name}`) // отправляем data в блок status
   } else {
-    res.send([{status: 'Error', errorText: 'Неправильный логин или пароль'}]) // отправляем data в блок status
+    res.send([{status: false, errorText: 'Неправильный логин или пароль', inputName: '.loginMain'}]) // отправляем data в блок status
   }
 }
 
@@ -32,7 +32,7 @@ const trySignUp = async (req, res) => {
     name: req.body.name,
     surname: req.body.surname,
     login: req.body.login,
-    user_pass: req.body.user_pass, // тут хешируем пароль
+    userpass: req.body.userpass, // тут хешируем пароль
   });
   user.save(); // сохраняем нового пользавателя в БД
   res.send('Saved'); // отправляем data в блок status
